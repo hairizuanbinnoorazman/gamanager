@@ -2,7 +2,7 @@
 % Please edit documentation in R/profiles.R
 \name{create_profile}
 \alias{create_profile}
-\title{Create a new property in Google Analytics}
+\title{Create a new profile in Google Analytics}
 \usage{
 create_profile(accountId, webPropertyId, name, botFilteringEnabled = NULL,
   currency = NULL, defaultPage = NULL, eCommerceTracking = NULL,
@@ -10,7 +10,9 @@ create_profile(accountId, webPropertyId, name, botFilteringEnabled = NULL,
   type = "WEB", websiteUrl = NULL)
 }
 \arguments{
-\item{accountId}{Account ID to link to new web property. Does not accept ~all as paramter}
+\item{accountId}{Account ID to link to new profile. Does not accept ~all as parameter}
+
+\item{webPropertyId}{Web Property ID to link to new profie. Does not accept ~all as parameter}
 
 \item{name}{Name of web property}
 
@@ -20,6 +22,6 @@ create_profile(accountId, webPropertyId, name, botFilteringEnabled = NULL,
 If this field is set, the correct values are: UNSPECIFIED, ARTS_AND_ENTERTAINMENT}
 }
 \description{
-Create a new property in Google Analytics
+Create a new profile in Google Analytics
 }
 

@@ -30,6 +30,31 @@ list_properties <- function(accountId = "~all", webPropertyId = "~all", max.resu
 }
 
 
+#' Get the details of a web property from Google Analytics
+#' @param accountId Account ID to retrieve profile for.
+#' @param webPropertyId ID to retrieve the profile for.
+#' @param profileId ID to retrive the profile for
+#' @importFrom httr config accept_json content GET
+#' @importFrom jsonlite fromJSON
+#' @export
+get_profile <- function(accountId, webPropertyId, profileId){
+  url <- get_endpoint("gamanager.profiles.get", accountId = accountId, webPropertyId = webPropertyId,
+                      profileId = profileId)
+  token <- get_token()
+  config <- httr::config(token=token)
+  # GET request
+  result <- httr::GET(url, config = config, accept_json(), encode = "json")
+  result_content <- content(result, "text")
+  result_list <- fromJSON(result_content)
+  # If endpoint return url status other than 200, return error message
+  if(httr::status_code(result) != 200){
+    stop(result_list$error$message)
+  }
+  return(result_list)
+}
+
+
+
 #' Create a new profile in Google Analytics
 #' @param accountId Account ID to link to new profile. Does not accept ~all as parameter
 #' @param webPropertyId Web Property ID to link to new profie. Does not accept ~all as parameter
