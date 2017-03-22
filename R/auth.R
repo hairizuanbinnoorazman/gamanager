@@ -24,7 +24,7 @@ authorize <- function(client.id = getOption("gamanager.client.id"),
   app <- oauth_app(appname = "googlemanager", key = client.id, secret = client.secret)
   endpoint <- oauth_endpoints("google")
   token <- oauth2.0_token(endpoint = endpoint, app = app,
-                          scope = c("https://www.googleapis.com/auth/analytics.edit"))
+                          scope = c("https://www.googleapis.com/auth/analytics"))
   set_token(token)
   return(invisible(token))
 }
