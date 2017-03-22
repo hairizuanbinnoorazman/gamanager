@@ -34,4 +34,27 @@ list_goals <- function(accountId = "~all", webPropertyId = "~all", profileId = "
 }
 
 
-#' Create goals for accounts
+#' Get the details of a goal from Google Analytics
+#' @param accountId Account ID to retrieve profile for.
+#' @param webPropertyId ID to retrieve the profile for.
+#' @param profileId ID to retrive the profile for.
+#' @param goalId Goal ID to retrive the goal for.
+#' @importFrom httr config accept_json content GET
+#' @importFrom jsonlite fromJSON
+#' @export
+get_goal <- function(accountId, webPropertyId, profileId, goalId){
+  url <- get_endpoint("gamanager.goals.get", accountId = accountId, webPropertyId = webPropertyId,
+                      profileId = profileId, goalId = goalId)
+  token <- get_token()
+  config <- httr::config(token=token)
+  # GET request
+  result <- httr::GET(url, config = config, accept_json(), encode = "json")
+  result_content <- content(result, "text")
+  result_list <- fromJSON(result_content)
+  # If endpoint return url status other than 200, return error message
+  if(httr::status_code(result) != 200){
+    stop(result_list$error$message)
+  }
+  return(result_list)
+}
+
