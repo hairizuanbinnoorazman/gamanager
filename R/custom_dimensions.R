@@ -10,7 +10,7 @@
 #' @importFrom httr config accept_json content GET
 #' @importFrom jsonlite fromJSON
 #' @export
-list_custom_dimensions <- function(accountId = "~all", webPropertyId = "~all",
+list_custom_dimensions <- function(accountId, webPropertyId,
                                    max.results = NULL, start.index = NULL){
   url <- get_endpoint("gamanager.dimensions.list", accountId = accountId, webPropertyId = webPropertyId)
   token <- get_token()
