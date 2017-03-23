@@ -7,7 +7,7 @@
 #' @importFrom httr config accept_json content GET
 #' @importFrom jsonlite fromJSON
 #' @export
-list_filters <- function(accountId = "~all", max.results = NULL, start.index = NULL){
+list_filters <- function(accountId, max.results = NULL, start.index = NULL){
   url <- get_endpoint("gamanager.filters.list", accountId = accountId)
   token <- get_token()
   config <- httr::config(token=token)
