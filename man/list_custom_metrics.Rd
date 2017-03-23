@@ -4,16 +4,15 @@
 \alias{list_custom_metrics}
 \title{Get the list of custom metrics from Google Analytics}
 \usage{
-list_custom_metrics(accountId = "~all", webPropertyId = "~all",
-  max.results = NULL, start.index = NULL)
+list_custom_metrics(accountId, webPropertyId, max.results = NULL,
+  start.index = NULL)
 }
 \arguments{
-\item{accountId}{Account ID to retrieve custom metrics for. Can either be a specific account
-ID or '~all', which refers to all the accounts that user has access to.}
+\item{accountId}{Account ID to retrieve custom metrics for. A specific account
+ID needs to be provided.}
 
-\item{webPropertyId}{Web property ID to retrieve custom metrics for. Can either be a
-specific web property ID or '~all', which refers to all the web properties to which the user
-has access.}
+\item{webPropertyId}{Web property ID to retrieve custom metrics for. A specific web property ID
+needs to be provided.}
 
 \item{max.results}{The maximum number of results to include in this response.}
 

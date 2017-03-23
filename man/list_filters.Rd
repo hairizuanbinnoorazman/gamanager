@@ -4,11 +4,11 @@
 \alias{list_filters}
 \title{Get the list of filters from Google Analytics}
 \usage{
-list_filters(accountId = "~all", max.results = NULL, start.index = NULL)
+list_filters(accountId, max.results = NULL, start.index = NULL)
 }
 \arguments{
-\item{accountId}{Account ID to retrieve goals for. Can either be a specific account
-ID or '~all', which refers to all the accounts that user has access to.}
+\item{accountId}{Account ID to retrieve custom metrics for. A specific account
+ID needs to be provided.}
 
 \item{max.results}{The maximum number of accounts to include in this response.}
 

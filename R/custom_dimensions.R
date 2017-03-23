@@ -1,9 +1,8 @@
 #' Get the list of custom dimensions from Google Analytics
-#' @param accountId Account ID to retrieve goals for. Can either be a specific account
-#' ID or '~all', which refers to all the accounts that user has access to.
-#' @param webPropertyId Web property ID to retrieve goals for. Can either be a
-#' specific web property ID or '~all', which refers to all the web properties to which the user
-#' has access.
+#' @param accountId Account ID to retrieve custom metrics for. A specific account
+#' ID needs to be provided.
+#' @param webPropertyId Web property ID to retrieve custom metrics for. A specific web property ID
+#' needs to be provided.
 #' @param max.results The maximum number of accounts to include in this response.
 #' @param start.index An index of the first account to retrieve. Use this parameter as a
 #' pagination mechanism along with the max-results parameter.
